@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Linh tinh</title>
+  </head>
+  <body class="text-center">
+    <h1>Hihi</h1>
+    <div class="container">
+      <form>
+        <label for="">Title</label>
+        <div class="form-group">
+          <input type="text" id="title" class="form-control">
+        </div>
+        <label for="">Redmine url</label>
+        <div class="form-group">
+          <input type="text" id="redmine" class="form-control">
+        </div>
+        <label for="">Github url</label>
+        <div class="form-group">
+          <input type="text" id="github" class="form-control">
+        </div>
+        <div class="form-group">
+          <input type="submit" id="generate" class="btn btn-primary form-control" value="submit">
+        </div>
+      </form>
+      <h1>Result</h1>
+      <div class="form-group">
+        <textarea type="textarea" id="result" class="form-control" rows="5"></textarea>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      $('body').on('click', '#generate', function(event) {
+        event.preventDefault();
+        var redmine = $('#redmine').val(),
+            github = $('#github').val(),
+            title = $('#title').val(),
+            result = $('#result');
+        var task_id = redmine.split('/')[5];
+        result.val(`[info][title]PULL #${task_id}[/title]${title}
+Redmine: ${redmine}
+GitHub: ${github}[/info]`);
+      });
+    </script>
+  </body>
+</html>
