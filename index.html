@@ -3,34 +3,48 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Linh tinh</title>
+    <title>GET FORMAT PULL REQUEST</title>
+    <style type="text/css">
+      body {
+        height: 100vh;
+        background-image: url('http://i.stack.imgur.com/08pYU.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: bottom center;
+      }
+    </style>
   </head>
   <body class="text-center">
-    <h1>Hihi</h1>
+    <h1>FORM FORMAT PULL REQUEST</h1>
     <div class="container">
-      <form>
-        <label for="">Title</label>
-        <div class="form-group">
-          <input type="text" id="title" class="form-control">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <form class="text-left">
+            <label for="">Title</label>
+            <div class="form-group">
+              <input type="text" id="title" class="form-control">
+            </div>
+            <label for="">Redmine url</label>
+            <div class="form-group">
+              <input type="text" id="redmine" class="form-control">
+            </div>
+            <label for="">Github url</label>
+            <div class="form-group">
+              <input type="text" id="github" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="submit" id="generate" class="btn btn-primary form-control" value="Get message">
+            </div>
+          </form>
+          <h1>Result</h1>
+          <div class="form-group">
+            <textarea type="textarea" id="result" class="form-control" rows="5"></textarea>
+          </div>
         </div>
-        <label for="">Redmine url</label>
-        <div class="form-group">
-          <input type="text" id="redmine" class="form-control">
-        </div>
-        <label for="">Github url</label>
-        <div class="form-group">
-          <input type="text" id="github" class="form-control">
-        </div>
-        <div class="form-group">
-          <input type="submit" id="generate" class="btn btn-primary form-control" value="submit">
-        </div>
-      </form>
-      <h1>Result</h1>
-      <div class="form-group">
-        <textarea type="textarea" id="result" class="form-control" rows="5"></textarea>
       </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
+
     <script type="text/javascript">
       $('body').on('click', '#generate', function(event) {
         event.preventDefault();
@@ -41,7 +55,10 @@
         var task_id = redmine.split('/')[5];
         result.val(`[info][title]PULL #${task_id}[/title]${title}
 Redmine: ${redmine}
-GitHub: ${github}[/info]`);
+GitHub: ${github}[/info]
+VI: Mọi người check giúp em pull #${task_id}! (bow)
+EN: Could you help me check this pull #${task_id}? Thank you so much! (bowbowbow)
+JP: このプルをチェックするのを手伝ってもらえますか？ #${task_id} (onegai)`);
       });
     </script>
   </body>
