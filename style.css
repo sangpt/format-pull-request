@@ -1,0 +1,11 @@
+body {
+  height: 100vh;
+  background-image: url('img/08pYU.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+textarea {
+  resize: vertical;
+}
